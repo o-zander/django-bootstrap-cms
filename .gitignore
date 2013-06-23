@@ -1,4 +1,14 @@
+# FILE TYPES
 *.log
 *.pot
 *.pyc
-local_settings.py
+
+# SETTINGS
+settings_local.py
+
+# IDE
+/.idea
+*.iml
+
+# VIRTUALENV
+/venv

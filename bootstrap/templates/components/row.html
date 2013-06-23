@@ -1,0 +1,8 @@
+{% load cms_tags %}
+{% with row=instance %}
+    <div {% if row.identifier %}id="{{ row.identifier }}" {% endif %} class="row">
+        {% for child in row.child_plugin_intsances %}
+            {% render_plugin child %}
+        {% endfor %}
+    </div>
+{% endwith %}

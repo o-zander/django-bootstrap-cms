@@ -1,0 +1,35 @@
+<!DOCTYPE html> {% load cms_tags sekizai_tags static i18n %} {% get_current_language as lang %}
+<html lang="{{ lang }}">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="content-type" content="text/html; charset=utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+        <title>{% block title%}{% page_attribute 'page_title' %}{% endblock %}</title>
+
+        {% block meta %}
+            <meta name="author" content="{% block author %}{% endblock %}">
+            <meta name="description" lang="{{ lang }}" content="{% block description %}{% page_attribute 'meta_description' %}{% endblock %}">
+            <meta name="keywords" lang="{{ lang }}" content="{% block keywords %}{% page_attribute 'meta_keywords' %}{% endblock %}">
+        {% endblock %}
+
+        {% addtoblock 'css' %}<link href="{% static 'css/bootstrap.min.css' %}" rel="stylesheet" media="screen">{% endaddtoblock %}
+        {% addtoblock 'css' %}<link href="{% static 'css/django-bootstrap-cms.css' %}" rel="stylesheet" media="screen">{% endaddtoblock %}
+
+        {% addtoblock 'js' %}<script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js"></script>{% endaddtoblock %}
+        {% addtoblock 'js' %}<script src="{% static 'js/bootstrap.min.js' %}"></script>{% endaddtoblock %}
+
+        {% render_block 'css' %}
+    </head>
+    <body>
+        {% cms_toolbar %}
+
+        {% if request.user.is_staff %} {# required to push content beneath the toolbar #}
+            <div id="django-bootstrap-cms-toolbar-spacer"><a>{% trans 'This space is removed if you are logged out!' %}</a></div>
+        {% endif %}
+
+        {% block body %}{% endblock %}
+
+        {% render_block 'js' %}
+    </body>
+</html>
