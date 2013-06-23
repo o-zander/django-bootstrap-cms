@@ -1,0 +1,8 @@
+{% load cms_tags %}
+{% with column=instance %}
+    <div class="span{{ column.span }}{% if column.offset %} offset{{ column.offset }}{% endif %}">
+        {% for child in column.child_plugin_instances %}
+            {% render_plugin child %}
+        {% endfor %}
+    </div>
+{% endwith %}
