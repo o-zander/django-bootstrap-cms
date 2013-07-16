@@ -1,0 +1,3 @@
+{% with image=instance %}
+    <img{% if image.identifier %} id="{{ image.identifier }}"{% endif %}{% if image.shape %} class="img-{{ image.shape }}"{% endif %} src="{{ image.file.url }}" alt="{{ image.get_alternative_text }}" />
+{% endwith %}

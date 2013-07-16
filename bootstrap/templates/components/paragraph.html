@@ -1,3 +1,5 @@
 {% with paragraph=instance %}
-    <p{% if paragraph.has_class %} class="{{ paragraph.get_class }}"{% endif %}>{{ paragraph.text|safe }}</p>
+    <p{% if paragraph.has_class %} class="{{ paragraph.get_class }}"{% endif %}>
+        {{ paragraph.content|safe }}
+    </p>
 {% endwith %}

@@ -1,0 +1,9 @@
+{% load cms_tags %}
+{% with blockquote=instance %}
+    <blockquote{% if blockquote.identifier %} id="{{ blockquote.identifier }}"{% endif %}{% if blockquote.align %} class="{{ blockquote.get_alignment_class }}"{% endif %}>
+        {% for child in blockquote.child_plugin_instances %}
+            {% render_plugin child %}
+        {% endfor %}
+        {% if blockquote.source %}<small>{{ blockquote.source|safe }}</small>{% endif %}
+    </blockquote>
+{% endwith %}

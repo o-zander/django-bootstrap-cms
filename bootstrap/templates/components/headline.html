@@ -1,0 +1,5 @@
+{% with headline=instance %}
+    <h{{ headline.rank }}{% if headline.identifier %} id={{ headline.identifier }}{% endif %}>
+        {{ headline.content|safe }}
+    </h{{ headline.rank }}>
+{% endwith %}

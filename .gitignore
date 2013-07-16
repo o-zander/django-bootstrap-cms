@@ -3,12 +3,6 @@
 *.pot
 *.pyc
 
-# SETTINGS
-settings_local.py
-
 # IDE
-/.idea
 *.iml
-
-# VIRTUALENV
-/venv
+/.idea

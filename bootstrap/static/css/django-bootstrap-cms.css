@@ -1,10 +1,14 @@
 #django-bootstrap-cms-toolbar-spacer {
     height: 31px;
     text-align: center;
-    vertical-align: middle;
 }
 
 #django-bootstrap-cms-toolbar-spacer a {
     text-decoration: none;
     color: black;
+    visibility: hidden;
+}
+
+#django-bootstrap-cms-toolbar-spacer:hover a {
+    visibility: visible;
 }
